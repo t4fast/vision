@@ -7,7 +7,7 @@ cnt_up=0
 cnt_down=0
 
 
-cap=cv2.VideoCapture("surveillance.m4v")
+cap=cv2.VideoCapture('C:\\Python35\\Projects\\Traffic_counting\\Vidsamples\\UK360.mp4')
 
 #Get width and height of video
 

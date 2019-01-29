@@ -51,7 +51,7 @@ fgbg=cv2.createBackgroundSubtractorMOG2(detectShadows=True)
 #Kernals
 kernalOp = np.ones((3,3),np.uint8)
 kernalOp2 = np.ones((5,5),np.uint8)
-kernalCl = np.ones((11,11),np.uint)
+kernalCl = np.ones((11,11),np.uint8)
 
 
 font = cv2.FONT_HERSHEY_SIMPLEX
@@ -82,10 +82,10 @@ while(cap.isOpened()):
 
 
         #Find Contours
-        _, countours0,hierarchy=cv2.findContours(mask,cv2.RETR_EXTERNAL,cv2.CHAIN_APPROX_NONE)
+        countours0,hierarchy=cv2.findContours(mask,cv2.RETR_EXTERNAL,cv2.CHAIN_APPROX_NONE)
         for cnt in countours0:
             area=cv2.contourArea(cnt)
-            print(area)
+            #print(area)
             if area>areaTH:
                 ####Tracking######
                 m=cv2.moments(cnt)
@@ -102,10 +102,10 @@ while(cap.isOpened()):
 
                             if i.going_UP(line_down,line_up)==True:
                                 cnt_up+=1
-                                print("ID:",i.getId(),'crossed going up at', time.strftime("%c"))
+                                #print("ID:",i.getId(),'crossed going up at', time.strftime("%c"))
                             elif i.going_DOWN(line_down,line_up)==True:
                                 cnt_down+=1
-                                print("ID:", i.getId(), 'crossed going up at', time.strftime("%c"))
+                                #print("ID:", i.getId(), 'crossed going up at', time.strftime("%c"))
                             break
                         if i.getState()=='1':
                             if i.getDir()=='down'and i.getY()>down_limit:
